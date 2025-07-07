@@ -1,5 +1,5 @@
 public class MergeTwoList{
-    public class ListNode {
+    public static class ListNode {
 
         int val;
         ListNode next;
@@ -32,6 +32,29 @@ public class MergeTwoList{
             cur = cur.next;
         }
         return dummy.next;
+    }
+    public static void printList(ListNode head) {
+        ListNode current = head;
+        while (current != null) {
+            System.out.print(current.val + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        ListNode l1 = new ListNode(1);
+        l1.next = new ListNode(3);
+        l1.next.next = new ListNode(5);
+
+        ListNode l2 = new ListNode(2);
+        l2.next = new ListNode(4);
+        l2.next.next = new ListNode(6);
+
+        MergeTwoList mtl = new MergeTwoList();
+        MergeTwoList.ListNode mtll = new MergeTwoList.ListNode();
+        System.out.print("Merged Linked List: ");
+        printList(mtll);
     }
 }
 

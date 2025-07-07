@@ -4,7 +4,22 @@ public class ValidParenthesis {
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         char[] str = s.toCharArray();
-        if(s.length() %2!=0){
+        for(char c:str){
+            if( c == '(' || c == '{' || c== '['){
+                stack.push(c);
+            }else if(c == ')' && !stack.isEmpty() && stack.peek() == '(' ){
+                stack.pop();
+            }else if(c == '}' && !stack.isEmpty() && stack.peek() == '{' ){
+                stack.pop();
+            }else if(c == ']' && !stack.isEmpty() && stack.peek() == '[' ){
+                stack.pop();
+            }
+            else{
+                return false;
+            }
+        }
+        return stack.isEmpty();
+        /*if(s.length() %2!=0){
             return false;
         }else {
             for(char c:str){
@@ -19,10 +34,10 @@ public class ValidParenthesis {
                 }
             }
         }
-        return stack.isEmpty();
+        return stack.isEmpty();*/
     }
     public static void main(String []a){
-        String str = "([}}])";
+        String str = "]";
         ValidParenthesis vp = new ValidParenthesis();
         System.out.println(vp.isValid(str));
 

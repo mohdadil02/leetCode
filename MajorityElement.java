@@ -3,10 +3,13 @@ import org.w3c.dom.ls.LSOutput;
 import java.util.HashMap;
 
 public class MajorityElement {
+
+    
     public int majorityElement(int[] nums) {
 
         HashMap<Integer, Integer> map = new HashMap<>();
         for(int num: nums){
+
 
             if(map.containsKey(num)){
                 map.put(num, map.get(num)+1);
@@ -16,6 +19,7 @@ public class MajorityElement {
             if(map.get(num) > (nums.length)/2){
                 System.out.println(num);
                 return num;
+
 
             }
         }
